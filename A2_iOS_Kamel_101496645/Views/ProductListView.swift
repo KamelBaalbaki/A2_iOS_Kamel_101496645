@@ -13,16 +13,10 @@ struct ProductListView: View {
     var body: some View {
         List {
             ForEach(vm.products) { product in
-                VStack(alignment: .leading) {
-                    Text(product.name ?? "")
-                        .font(.headline)
-                    
-                    Text(product.desc ?? "")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                }
+                ProductCard(product: product)
+                    .listRowSeparator(.hidden)
             }
         }
-        .navigationTitle("All Products")
+        .listStyle(.plain)
     }
 }
