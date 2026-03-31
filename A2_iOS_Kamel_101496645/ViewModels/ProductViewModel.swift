@@ -16,6 +16,7 @@ class ProductViewModel: ObservableObject {
     
     init() {
         fetchProducts()
+        seedData()
     }
     
     func fetchProducts() {
@@ -71,7 +72,7 @@ class ProductViewModel: ObservableObject {
         }
     }
     
-    func seedDataIfNeeded() {
+    func seedData() {
         if products.isEmpty {
             let sampleProducts = [
                 ("iPhone 15", "Apple smartphone", 1200, "Apple"),
