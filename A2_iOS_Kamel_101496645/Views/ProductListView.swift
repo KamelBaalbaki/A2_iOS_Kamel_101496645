@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ProductListView: View {
     @ObservedObject var vm: ProductViewModel
@@ -14,9 +15,21 @@ struct ProductListView: View {
         List {
             ForEach(vm.products) { product in
                 ProductCard(product: product)
-                    .listRowSeparator(.hidden)
+            }
+            .onDelete { indexSet in
+                deleteProduct(at: indexSet)
             }
         }
         .listStyle(.plain)
+        .navigationTitle("All Products")
+    }
+    
+    func deleteProduct(at offsets: IndexSet) {
+        for index in offsets {
+            let product = vm.products[index]
+            vm.context.delete(product)
+        }
+        
+        vm.save()
     }
 }
