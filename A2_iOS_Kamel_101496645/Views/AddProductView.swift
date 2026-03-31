@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddProductView: View {
     @ObservedObject var vm: ProductViewModel
+    @Environment(\.dismiss) var dismiss
     
     @State private var name = ""
     @State private var desc = ""
@@ -29,6 +30,7 @@ struct AddProductView: View {
                     price: Double(price) ?? 0,
                     provider: provider
                 )
+                dismiss()
             }
         }
         .navigationTitle("Add Product")
