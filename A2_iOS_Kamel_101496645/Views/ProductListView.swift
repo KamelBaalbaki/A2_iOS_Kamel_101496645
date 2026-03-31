@@ -5,6 +5,8 @@
 //  Created by Kamel Baalbaki on 2026-03-30.
 //
 
+import SwiftUI
+
 struct ProductListView: View {
     @ObservedObject var vm: ProductViewModel
     
