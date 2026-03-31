@@ -7,6 +7,8 @@
 
 import Foundation
 import CoreData
+import SwiftUI
+import Combine
 
 class ProductViewModel: ObservableObject {
     let context = PersistenceController.shared.container.viewContext
