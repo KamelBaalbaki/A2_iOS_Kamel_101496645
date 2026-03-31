@@ -70,4 +70,24 @@ class ProductViewModel: ObservableObject {
             print("Search error: \(error)")
         }
     }
-}
+    
+    func seedDataIfNeeded() {
+        if products.isEmpty {
+            let sampleProducts = [
+                ("iPhone 15", "Apple smartphone", 1200, "Apple"),
+                ("MacBook Air", "Lightweight laptop", 1500, "Apple"),
+                ("Galaxy S23", "Samsung flagship", 1100, "Samsung"),
+                ("AirPods", "Wireless earbuds", 250, "Apple"),
+                ("PlayStation 5", "Gaming console", 700, "Sony"),
+                ("Xbox Series X", "Gaming console", 650, "Microsoft"),
+                ("iPad Pro", "Tablet device", 1300, "Apple"),
+                ("Dell XPS", "Premium laptop", 1400, "Dell"),
+                ("Surface Pro", "2-in-1 laptop", 1350, "Microsoft"),
+                ("Google Pixel", "Android phone", 900, "Google")
+            ]
+            
+            for p in sampleProducts {
+                addProduct(name: p.0, desc: p.1, price: Double(p.2), provider: p.3)
+            }
+        }
+    }}
