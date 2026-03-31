@@ -63,11 +63,6 @@ struct ProductDetailView: View {
             }
             .padding()
             .navigationTitle("Products")
-            .onAppear {
-                if vm.products.isEmpty {
-                    seedData(vm: vm)
-                }
-            }
         }
     }
 }
